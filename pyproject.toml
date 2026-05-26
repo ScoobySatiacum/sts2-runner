@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sts2"
+version = "0.0.1"
+dependencies = [
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "Skyler Satiacum", email = "skylersatiacum@gmail.com"}
+]
+maintainers = [
+  {name = "Skyler Satiacum", email = "skylersatiacum@gmail.com"}
+]
+description = "My toolbox of python tools"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICEN[CS]E.*"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
