@@ -258,7 +258,7 @@ def get_run_ids(db_path: Path) -> list[str]:
 
 if __name__ == '__main__':
 
-    runs_location = Path('') # Path to your saves
+    runs_location = Path('/Users/scoob/Library/Application Support/SlayTheSpire2/steam/76561197989393831/profile2/saves/history') # Path to your saves
     db_path = Path('instance/sts2_runs.db') # creates an instance next to the location the script is running instance/sts2_runs.db. Change as needed.
     run_files = [i for i in runs_location.glob('*')]
 
