@@ -42,6 +42,42 @@ uv run pyinstaller --name sts2-runner --onefile --console src/sts2/cli/__main__.
 - The binary responds to `--help` or equivalent smoke checks without requiring a source checkout.
 - Packaging does not change the underlying library architecture.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm the CLI entry point and `--help` behavior are stable.
+- [ ] Confirm the package builds successfully with `uv build`.
+- [ ] Decide which CPU architectures and artifact formats are required for the first release.
+
+### Implementation
+
+- [ ] Add PyInstaller to the development dependency group.
+- [ ] Define the PyInstaller configuration without moving packaging logic into library modules.
+- [ ] Build a macOS executable on each supported macOS architecture.
+- [ ] Build a Debian Linux executable in a Debian-compatible environment.
+- [ ] Build a Windows `.exe` in a Windows environment.
+- [ ] Include package resources required by the CLI.
+- [ ] Name artifacts using the project name, version, operating system, and architecture.
+- [ ] Keep `build/`, `dist/`, and generated spec files out of source control.
+- [ ] Add CI or documented local commands for each target platform.
+
+### Tests and validation
+
+- [ ] Run each generated binary with `--help`.
+- [ ] Run a minimal ingest or report smoke test for each target platform.
+- [ ] Verify the executable does not require a source checkout or active virtual environment.
+- [ ] Verify the artifact version matches the Git tag.
+- [ ] Record platform-specific limitations and missing-resource failures.
+
+### Documentation and completion evidence
+
+- [ ] Document build prerequisites and commands for all target platforms.
+- [ ] Document artifact naming, release storage, and checksum expectations.
+- [ ] Record packaging lessons in private learning notes.
+- [ ] Update development status with artifact and smoke-test evidence.
+- [ ] Mark the milestone complete only when each required platform has a repeatable build.
+
 ## Example smoke test
 
 ```bash

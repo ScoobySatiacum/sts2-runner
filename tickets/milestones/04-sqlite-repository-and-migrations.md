@@ -25,6 +25,46 @@ Create the persistence layer that writes the normalized row groups into SQLite a
 - Re-running ingestion for the same run_id does not create duplicate records.
 - Child rows are inserted into the correct related tables.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm the schema contract and normalized row groups are approved.
+- [ ] Confirm the repository is the only component responsible for SQLite writes.
+- [ ] Use a temporary database for repository tests.
+
+### Implementation
+
+- [ ] Implement database creation from the schema contract.
+- [ ] Enable SQLite foreign-key enforcement for every connection.
+- [ ] Implement an explicit schema version table or equivalent migration marker.
+- [ ] Implement migrations as ordered, repeatable operations.
+- [ ] Implement insertion for the parent `runs` row.
+- [ ] Implement insertion for each child row group.
+- [ ] Wrap one run import in a transaction.
+- [ ] Enforce `run_id` uniqueness at the database level.
+- [ ] Define the duplicate-import result and expose it to callers.
+- [ ] Roll back the full import when a child-row insert fails.
+- [ ] Keep connection lifecycle and SQL statements inside the repository module.
+
+### Tests and validation
+
+- [ ] Write failing repository tests before implementing writes.
+- [ ] Test database creation and schema version initialization.
+- [ ] Test parent and child inserts with foreign keys enabled.
+- [ ] Test duplicate `run_id` behavior.
+- [ ] Test transaction rollback after an insertion failure.
+- [ ] Test migration from the previous schema version.
+- [ ] Run focused repository tests, the full pytest suite, and Ruff.
+
+### Documentation and completion evidence
+
+- [ ] Document repository methods and transaction behavior.
+- [ ] Document migration ordering and upgrade expectations.
+- [ ] Record the first persistence failure and its resolution in private learning notes.
+- [ ] Update development status with schema and transaction validation evidence.
+- [ ] Mark the milestone complete only when all SQLite writes pass through the repository.
+
 ## Example pytest cases
 
 ```python

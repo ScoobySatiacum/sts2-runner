@@ -42,6 +42,40 @@ src/
 - The package structure reflects the intended ownership boundaries.
 - The architecture documentation describes the direction of dependency flow.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm the working branch is the milestone branch for this work.
+- [ ] Confirm the current test suite passes before making changes.
+- [ ] Read the package layout and dependency-direction requirements in the technical specification.
+- [ ] Record any existing uncommitted changes before editing files.
+
+### Package structure
+
+- [ ] Create the required package directories under `src/sts2`.
+- [ ] Add `__init__.py` files to every importable package directory.
+- [ ] Add module-level docstrings to new public modules.
+- [ ] Keep CLI and GUI modules separate from the core library modules.
+- [ ] Keep database imports out of CLI and GUI modules except through service interfaces.
+- [ ] Define the first public interfaces for loading, normalization, persistence, and querying.
+- [ ] Keep the interfaces independent of pandas DataFrame implementation details.
+
+### Tests and validation
+
+- [ ] Add the package-boundary tests before implementing the corresponding imports.
+- [ ] Run the focused package-boundary tests.
+- [ ] Run the complete existing regression suite.
+- [ ] Run Ruff on every changed Python file.
+- [ ] Inspect the import graph for presentation-to-storage shortcuts.
+
+### Documentation and completion evidence
+
+- [ ] Document the dependency direction in the architecture documentation.
+- [ ] Record any package-layout decisions in the private learning notes.
+- [ ] Update `docs/DEVELOPMENT_STATUS.md` with the completed work and validation commands.
+- [ ] Mark this milestone complete only when all acceptance criteria and checklist items are satisfied.
+
 ## Example pytest cases
 
 ```python

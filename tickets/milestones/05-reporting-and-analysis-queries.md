@@ -32,6 +32,42 @@ Create the query layer that supports both operational reporting and broader data
 - The query layer can aggregate over the full dataset for analysis.
 - Query results can be converted to Polars DataFrames without leaking database logic into the presentation layer.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm the repository exposes stable read access and returns predictable database records.
+- [ ] Define the report and analysis questions before writing SQL.
+- [ ] Identify which results are single-run reports and which are dataset aggregates.
+
+### Implementation
+
+- [ ] Implement a query for one run by `run_id`.
+- [ ] Implement a query for run summaries and related child records.
+- [ ] Implement win/loss aggregates by character.
+- [ ] Implement relic, card, map, and choice aggregate queries that match available data.
+- [ ] Keep SQL statements inside query modules or repository read methods.
+- [ ] Define stable result shapes for CLI and GUI consumers.
+- [ ] Implement conversion from query results to Polars DataFrames at the analysis boundary.
+- [ ] Handle empty datasets without raising presentation-layer errors.
+- [ ] Document query ordering and null behavior.
+
+### Tests and validation
+
+- [ ] Write failing tests for every public query before implementation.
+- [ ] Test single-run results against known sample data.
+- [ ] Test aggregate results across win, loss, and multiplayer samples.
+- [ ] Test empty database behavior.
+- [ ] Test Polars column names and data types at the analysis boundary.
+- [ ] Run focused query tests, the full pytest suite, and Ruff.
+
+### Documentation and completion evidence
+
+- [ ] Document supported report and analysis query contracts.
+- [ ] Record the first analysis result and any interpretation limits in private learning notes.
+- [ ] Update development status with query coverage and validation evidence.
+- [ ] Mark the milestone complete only when both CLI and GUI can consume the same query services.
+
 ## Example pytest cases
 
 ```python

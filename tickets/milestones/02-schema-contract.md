@@ -48,6 +48,45 @@ Additional tables may be created as needed, but all should follow the same princ
 - There is a stable contract for how nested arrays and objects are expanded into database rows.
 - The schema is versioned and migration-aware.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm Milestone 1 package contracts are available and tested.
+- [ ] Inventory the actual top-level keys and nested collections in every representative sample `.run` file.
+- [ ] Record unknown, optional, and version-dependent fields instead of assuming the sample files are complete.
+
+### Schema design
+
+- [ ] Define the `runs` table and its stable primary key.
+- [ ] Define each child table and its parent key, including `run_id` on every run-owned table.
+- [ ] Define identifiers for players, acts, rooms, choices, modifiers, and other repeated entities.
+- [ ] Define how arrays become multiple rows while preserving their original order.
+- [ ] Define how dictionaries become key/value or property rows without losing keys.
+- [ ] Define how scalar values, nulls, empty arrays, and empty dictionaries are represented.
+- [ ] Define SQLite column types and nullability for every table.
+- [ ] Define uniqueness constraints and foreign-key constraints.
+- [ ] Define a schema version mechanism and the first migration identifier.
+- [ ] Map every source field to a destination column or explicitly documented preservation table.
+- [ ] Record fields that cannot yet be interpreted without dropping their raw value.
+
+### Tests and validation
+
+- [ ] Write failing schema-contract tests for required tables and relationships.
+- [ ] Test representative multiplayer and single-player samples where available.
+- [ ] Test optional sections, empty collections, and repeated nested values.
+- [ ] Test that source ordering is preserved for ordered arrays.
+- [ ] Validate the schema with SQLite foreign-key enforcement enabled.
+- [ ] Run the focused schema tests and the existing regression suite.
+
+### Documentation and completion evidence
+
+- [ ] Document the table catalog and relationship rules beside the schema contract.
+- [ ] Record unresolved source-shape questions in the milestone ticket rather than silently choosing a lossy mapping.
+- [ ] Update the technical specification if the approved schema differs from the proposal.
+- [ ] Update `docs/DEVELOPMENT_STATUS.md` with the schema decision and validation evidence.
+- [ ] Mark this milestone complete only when the repository can implement against the contract without inventing mappings.
+
 ## Example pytest cases
 
 ```python

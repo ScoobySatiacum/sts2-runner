@@ -26,6 +26,41 @@ Complete the project documentation pass so the library remains maintainable, rev
 - The project documentation reflects the final architecture and the current workflow.
 - The project is ready for future autodoc or MkDocs/Sphinx-style documentation generation.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm the final public package layout is stable.
+- [ ] Identify every public module, class, function, service, CLI command, and API route.
+- [ ] Select the autodoc tool or document why generation is intentionally deferred.
+
+### Documentation implementation
+
+- [ ] Add module docstrings to every public module.
+- [ ] Add class docstrings to every public class.
+- [ ] Add function docstrings to every public function and service entry point.
+- [ ] Document parameters, return values, raised exceptions, and side effects where applicable.
+- [ ] Document public CLI commands and API response contracts.
+- [ ] Remove stale examples that no longer match the implementation.
+- [ ] Keep comments limited to non-obvious implementation decisions.
+- [ ] Add or update generated-documentation configuration if selected.
+
+### Tests and validation
+
+- [ ] Run the complete pytest suite.
+- [ ] Run Ruff check and format check.
+- [ ] Build the package with uv.
+- [ ] Run the documentation tool or a docstring coverage check.
+- [ ] Review links and code examples for accuracy.
+- [ ] Review the public API from a new-contributor perspective.
+
+### Documentation and completion evidence
+
+- [ ] Update the contributor guide and development setup instructions.
+- [ ] Record documentation lessons in private learning notes.
+- [ ] Update development status with the final documentation validation.
+- [ ] Mark the milestone complete only when a new contributor can understand and exercise the public API without source-code archaeology.
+
 ## Example documentation standard
 
 ```python

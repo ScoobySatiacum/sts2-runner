@@ -25,6 +25,42 @@ Create a separate GUI presentation layer for browser-based report viewing and an
 - The API uses the same query layer as the CLI.
 - The GUI can be started independently from the ingestion or CLI workflow.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm query service result shapes are stable.
+- [ ] Define the first user workflows for run detail and aggregate analysis.
+- [ ] Define API response models and error responses before implementing routes.
+
+### Implementation
+
+- [ ] Create the FastAPI application factory.
+- [ ] Inject database and query-service dependencies into the application.
+- [ ] Implement a run-detail route.
+- [ ] Implement an aggregate-summary route.
+- [ ] Implement analysis routes only for queries already supported by the library.
+- [ ] Add response models for successful and error responses.
+- [ ] Add HTML templates or a documented JSON-only first slice without moving business logic into templates.
+- [ ] Ensure the GUI does not write to SQLite or parse raw files directly.
+- [ ] Document the development server command and configuration inputs.
+
+### Tests and validation
+
+- [ ] Write failing FastAPI tests before implementing routes.
+- [ ] Test successful run-detail and aggregate responses.
+- [ ] Test missing-run and invalid-request responses.
+- [ ] Test that routes use the shared query service.
+- [ ] Test application startup without a CLI invocation.
+- [ ] Run focused API tests, the full pytest suite, and Ruff.
+
+### Documentation and completion evidence
+
+- [ ] Document routes, response contracts, and local startup instructions.
+- [ ] Record the first API boundary lesson in private learning notes.
+- [ ] Update development status with endpoint and validation evidence.
+- [ ] Mark the milestone complete only when the GUI is a presentation layer over shared services.
+
 ## Example pytest cases
 
 ```python

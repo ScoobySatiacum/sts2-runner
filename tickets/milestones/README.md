@@ -1,6 +1,19 @@
 # Milestones
 
-This folder contains a decomposed view of the project execution plan for the sts2-runner refactor. Each milestone describes a bounded engineering increment, the required scope, the acceptance criteria, and example pytest cases.
+This folder contains a decomposed view of the project execution plan for the sts2-runner refactor. Each milestone describes a bounded engineering increment, the required scope, the acceptance criteria, example pytest cases, and an execution checklist.
+
+## How to use a milestone
+
+Work through the checklist from top to bottom. A human or AI contributor should:
+
+1. Confirm the preconditions before editing.
+2. Complete implementation items one at a time.
+3. Add or update tests before declaring behavior complete.
+4. Run the stated validation commands.
+5. Record decisions and evidence in the milestone ticket and development status.
+6. Mark the milestone complete only when its definition of done is demonstrably true.
+
+Checklist items are intentionally small enough to become individual commits, pull-request tasks, or AI prompts. When a checklist item reveals a new design decision, pause implementation and document the decision before continuing.
 
 ## Milestone index
 

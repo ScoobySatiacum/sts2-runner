@@ -4,18 +4,19 @@ Last updated: 2026-09-20
 
 ## Current branch
 
-The `refactor` branch is the working branch for the project redesign. It tracks `origin/refactor` and will hold the implementation work until the refactor is complete or a milestone-specific branch strategy is adopted.
+The `M01` branch is the current working branch for Milestone 1. It was created from the `refactor` branch and is intended to hold the package-foundation work until the milestone is complete.
 
 ## Git status snapshot
 
-At the beginning of this documentation and tooling pass, the repository reported:
+At the beginning of the Milestone 1 work, the repository reported:
 
 ```text
-## refactor...origin/refactor
- M pyproject.toml
+## M01
 ```
 
-The existing `pyproject.toml` change is the planned uv/package metadata migration. This pass extends that configuration with Ruff, explicit Hatch package selection, and Git-tag-based versioning. The files changed by this pass should remain visible in `git status` for review; they have not been committed automatically.
+The branch is being used for the first implementation milestone. Inspect `git status --short --branch` before each work session and preserve unrelated user changes.
+
+The current validation baseline is 14 passing legacy parser tests plus 2 intentionally failing Milestone 1 package-boundary tests. The failing tests identify the first implementation targets: `sts2.parse.loader`, `sts2.storage.sqlite_repository`, `sts2.queries.run_queries`, and the CLI/GUI public exports.
 
 Generated files and local environments remain excluded from source control, including `.venv`, caches, build output, distribution output, and local SQLite data. `uv.lock` is the exception: it is an intentional, tracked reproducibility file for this package and its binary builds.
 
@@ -48,6 +49,11 @@ Not yet implemented:
 - the PyInstaller build workflow
 - the final public API documentation pass
 
+The following worktree items were already present during this pass and were preserved without modification:
+
+- `.obsidian/`
+- `tests/test_package_boundries.py`
+
 ## Current tooling decisions
 
 - package manager and runner: uv
@@ -61,6 +67,10 @@ Not yet implemented:
 - persistence: SQLite
 - tests: pytest
 
+## Current milestone
+
+Milestone 1 is package foundations and public contracts. Its executable checklist is in [01-package-foundations.md](../tickets/milestones/01-package-foundations.md).
+
 ## Next implementation step
 
-Begin the first implementation milestone with package foundations and public contracts. Keep the work test-first, preserve the current parser regression coverage, and update this status file when a milestone changes from planned to implemented.
+Complete the Milestone 1 preconditions, package-structure tasks, focused tests, and documentation evidence. Keep the work test-first, preserve the current parser regression coverage, and update this status file when the milestone changes from planned to implemented.

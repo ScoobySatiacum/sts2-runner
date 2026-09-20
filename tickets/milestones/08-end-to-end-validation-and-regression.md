@@ -24,6 +24,42 @@ Validate the full data flow from .run file to normalized SQLite storage to repor
 - Reports and analysis outputs are consistent with the underlying database.
 - The test suite is green for the refactor scope.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm Milestones 1 through 7 have documented completion evidence.
+- [ ] Identify the supported end-to-end workflows that must not regress.
+- [ ] Confirm representative sample data is available and safe to use in tests.
+
+### Integration validation
+
+- [ ] Test raw `.run` file ingestion into a temporary SQLite database.
+- [ ] Test querying a single imported run.
+- [ ] Test aggregate analysis across multiple imported runs.
+- [ ] Test CLI output from the imported database.
+- [ ] Test GUI responses from the same imported database.
+- [ ] Verify CLI and GUI results agree for the same query.
+- [ ] Verify repeated ingestion does not duplicate data.
+- [ ] Verify a failed import does not leave partial rows.
+- [ ] Verify the package remains importable without starting either presentation layer.
+
+### Quality gates
+
+- [ ] Run the focused integration tests.
+- [ ] Run the complete pytest suite.
+- [ ] Run Ruff check and format check.
+- [ ] Build the package with uv.
+- [ ] Review public API docstrings and changed documentation.
+- [ ] Review the final diff for unrelated changes or generated artifacts.
+
+### Documentation and completion evidence
+
+- [ ] Record the end-to-end commands and results in development status.
+- [ ] Record any remaining test gaps and their rationale.
+- [ ] Update the engineering plan if integration testing changed an architectural decision.
+- [ ] Mark the milestone complete only when the full supported workflow is reproducible from a clean environment.
+
 ## Example pytest cases
 
 ```python

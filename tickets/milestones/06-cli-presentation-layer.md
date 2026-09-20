@@ -24,6 +24,44 @@ Provide a CLI interface for running imports, generating summaries, and exporting
 - The CLI can use the same queries that the GUI uses.
 - Output is deterministic and suitable for automation.
 
+## Execution checklist
+
+### Preconditions
+
+- [ ] Confirm ingest, repository, and query service interfaces are stable.
+- [ ] Choose the CLI framework and document the choice.
+- [ ] Define command names, arguments, exit codes, and output formats before implementation.
+
+### Implementation
+
+- [ ] Add a package entry point for the CLI.
+- [ ] Implement an ingest command that delegates to the ingestion service.
+- [ ] Implement a single-run report command.
+- [ ] Implement an aggregate report or analysis command.
+- [ ] Implement output destinations for stdout and files.
+- [ ] Implement JSON, CSV, Markdown, or text serialization according to the defined contract.
+- [ ] Return nonzero exit codes for invalid paths, invalid arguments, and service failures.
+- [ ] Keep SQL, parsing, and business rules out of command functions.
+- [ ] Ensure output is deterministic for the same database state.
+
+### Tests and validation
+
+- [ ] Write failing CLI invocation tests before implementing commands.
+- [ ] Test help output and invalid arguments.
+- [ ] Test ingest against a temporary database.
+- [ ] Test report output to stdout and a file.
+- [ ] Test each supported serialization format.
+- [ ] Test failure exit codes and useful error messages.
+- [ ] Run focused CLI tests, the full pytest suite, and Ruff.
+
+### Documentation and completion evidence
+
+- [ ] Document every command, option, output format, and exit code.
+- [ ] Add at least one copyable CLI workflow to the contributor guide.
+- [ ] Record CLI design lessons in private learning notes.
+- [ ] Update development status with command and validation evidence.
+- [ ] Mark the milestone complete only when the CLI uses library services exclusively.
+
 ## Example pytest cases
 
 ```python
