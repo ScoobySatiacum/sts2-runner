@@ -56,6 +56,8 @@ The following design decisions are fixed for this project:
 12. The refactor must include a final documentation pass before sign-off.
 13. The project must be buildable as a native executable on macOS, Debian Linux, and Windows.
 14. PyInstaller or an equivalent packaging solution must be included as part of the final engineering plan.
+15. Ruff is the required formatter and linter, with a 300-character line limit, tab indentation of width 4, single quotes, and no magic trailing commas.
+16. Package versions must be derived automatically from Git tags through hatch-vcs; a manually duplicated version field is not required.
 
 ---
 

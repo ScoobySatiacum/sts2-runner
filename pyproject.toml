@@ -1,30 +1,51 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
 [project]
-name = "sts2"
-version = "0.0.1"
+name = "sts2-runner"
+dynamic = ["version"]
+description = "Slay the Spire 2 run parser and reporting toolkit"
+readme = "README.md"
+requires-python = ">=3.12"
 dependencies = [
   "pandas",
+  "polars",
   "tqdm",
   "streamlit",
   "matplotlib",
   "plotly",
-  "Pillow",
+  "pillow",
+  "fastapi",
+  "uvicorn",
+  "pytest",
 ]
-requires-python = ">=3.8"
-authors = [
-  {name = "Skyler Satiacum", email = "skylersatiacum@gmail.com"}
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+  "ruff",
 ]
-maintainers = [
-  {name = "Skyler Satiacum", email = "skylersatiacum@gmail.com"}
-]
-description = "My toolbox of python tools"
-readme = "README.md"
-license = "MIT"
-license-files = ["LICEN[CS]E.*"]
-classifiers = [
-  "Development Status :: 4 - Beta",
-  "Programming Language :: Python"
-]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sts2"]
+
+[tool.ruff]
+line-length = 300
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "W"]
+ignore = ["W191"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "tab"
+line-ending = "lf"
+skip-magic-trailing-comma = true

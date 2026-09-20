@@ -11,6 +11,9 @@ I have incorporated the decisions you confirmed:
 - The CLI should support saved output to file
 - The GUI should be web-based with FastAPI, not Django
 - pytest and TDD are mandatory
+- Ruff is the required formatter and linter: 300-character lines, tab indentation with width 4, single quotes, and no magic trailing commas
+- hatch-vcs derives package versions from Git tags; bumpver is not required
+- the `refactor` branch is the working branch until the refactor is complete
 
 The work is tracked in Obsidian-ready markdown tickets under:
 - [tickets/README.md](README.md)
@@ -250,6 +253,9 @@ The strongest design for this project is:
 - FastAPI as the GUI layer
 - CLI output for saved reports
 - pytest-driven development across all major milestones
+- Ruff-enforced formatting and linting documented in [CONTRIBUTING.md](../CONTRIBUTING.md)
+- Git-tag-based automatic versioning through hatch-vcs
+- cross-platform build instructions for macOS, Debian Linux, and Windows
 
 This gives you a maintainable system that supports both operational reporting and deeper data analysis without sacrificing fidelity to the raw run files.
 

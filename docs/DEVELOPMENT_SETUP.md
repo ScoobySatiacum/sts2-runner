@@ -114,7 +114,7 @@ The minimum practical structure is:
 ```toml
 [project]
 name = "sts2-runner"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Slay the Spire 2 run parser and reporting toolkit"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -132,11 +132,14 @@ dependencies = [
 ]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [tool.uv]
 package = true
+
+[tool.hatch.version]
+source = "vcs"
 ```
 
 If the project is being created from scratch, a more standard uv flow is:
@@ -228,7 +231,40 @@ This project is meant to be extended by multiple contributors and to support aut
 
 ---
 
-## 4. Documentation workflow for AI-assisted work
+## 4. Ruff formatting and linting
+
+Ruff is the required formatter and linter for Python changes. The project configuration lives in `pyproject.toml` and defines these conventions:
+
+- maximum line length: 300 characters
+- indentation: tabs with an indentation width of 4
+- string quote style: single quotes
+- magic trailing commas: disabled so parameters stay on one line when the 300-character limit allows it
+- `W191`: disabled because it rejects the tab indentation style required by this project
+
+Run Ruff through uv:
+
+```bash
+uv run ruff check src tests
+uv run ruff format --check src tests
+```
+
+To apply formatting locally:
+
+```bash
+uv run ruff format src tests
+```
+
+To apply safe lint fixes:
+
+```bash
+uv run ruff check --fix src tests
+```
+
+Do not use a separate formatter with a conflicting indentation or quote policy. Ruff is the source of truth for Python formatting.
+
+---
+
+## 5. Documentation workflow for AI-assisted work
 
 When AI assistance is used, it should be treated as a tool for review and acceleration, not as a substitute for engineering judgement.
 
@@ -242,7 +278,41 @@ Required behaviour:
 
 ---
 
-## 5. Cross-platform build and distribution strategy
+## 6. Versioning and release workflow
+
+The project uses `hatch-vcs` for automatic version discovery. The version is derived from Git tags during builds, so the Git tag and the built package version cannot drift because of a manually duplicated version field in `pyproject.toml`.
+
+`bumpver` is not the preferred default for this repository. It is useful when a project intentionally stores a version string in one or more source files and wants a command to edit those files. This project already has Git as its release history, and Hatchling is already the build backend, so `hatch-vcs` is the smaller and more reliable integration.
+
+### Development versions
+
+When there is no release tag at the current commit, `hatch-vcs` generates a development version from the repository state. This is suitable for local builds and pre-release testing.
+
+### Release versions
+
+Create an annotated semantic-version tag after the release commit has passed its tests:
+
+```bash
+git tag -a v0.1.0 -m "Release v0.1.0"
+uv build
+```
+
+The generated wheel and source archive under `dist/` should contain version `0.1.0`. Build artifacts are ignored and should not be committed.
+
+### Versioning rules
+
+- use `MAJOR.MINOR.PATCH` semantic versions
+- increment MAJOR for incompatible public API changes
+- increment MINOR for backwards-compatible features
+- increment PATCH for backwards-compatible fixes
+- use a `v` prefix for Git tags, such as `v0.2.0`
+- create release tags only from reviewed commits on the intended release branch
+
+For future automation, CI can run tests, build the package, verify the artifact version, and publish when a version tag is pushed. The initial refactor does not need a release bot before the package and CLI contracts stabilize.
+
+---
+
+## 7. Cross-platform build and distribution strategy
 
 The project must be executable as a native binary on macOS, Debian Linux, and Windows. The build strategy should be defined as part of the engineering plan rather than added as a late workaround.
 
@@ -312,7 +382,7 @@ This confirms that the packaged artifact still loads the project and responds to
 
 ---
 
-## 6. Minimum project hygiene checklist
+## 8. Minimum project hygiene checklist
 
 Before a refactor is considered ready for review, confirm the following:
 
