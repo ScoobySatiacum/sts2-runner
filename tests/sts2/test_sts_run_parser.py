@@ -19,7 +19,7 @@ def test_parse_players_win():
 
     sut.parse_players()
 
-    assert len(sut.dfs) == 7
+    assert len(sut.dfs) == 8
 
 def test_parse_players_loss():
     test_path = Path('tests/samples/loss.run')
@@ -28,7 +28,7 @@ def test_parse_players_loss():
 
     sut.parse_players()
 
-    assert len(sut.dfs) == 6
+    assert len(sut.dfs) == 7
 
 def test_parse_players_mp_win():
     test_path = Path('tests/samples/multiplayer_win.run')
@@ -37,7 +37,7 @@ def test_parse_players_mp_win():
 
     sut.parse_players()
 
-    assert len(sut.dfs) == 7
+    assert len(sut.dfs) == 8
 
 def test_parse_players_mp_loss():
     test_path = Path('tests/samples/multiplayer_loss.run')
@@ -46,15 +46,16 @@ def test_parse_players_mp_loss():
 
     sut.parse_players()
 
-    assert len(sut.dfs) == 7
+    assert len(sut.dfs) == 8
 
 def test_parse_map_point_history_win():
     test_path = Path('tests/samples/win.run')
-    sut = StsRunParser(test_path)
+    db_path = Path('instance/sts2_runs.db')
+    sut = StsRunParser(test_path, db_path)
 
     sut.parse_map_point_history()
 
-    assert len(sut.dfs) == 10
+    assert len(sut.dfs) == 14
 
 def test_parse_map_point_history_loss():
     test_path = Path('tests/samples/loss.run')
@@ -63,7 +64,7 @@ def test_parse_map_point_history_loss():
 
     sut.parse_map_point_history()
 
-    assert len(sut.dfs) == 9
+    assert len(sut.dfs) == 13
 
 def test_parse_map_point_history_mp_win():
     test_path = Path('tests/samples/multiplayer_win.run')
@@ -72,7 +73,7 @@ def test_parse_map_point_history_mp_win():
 
     sut.parse_map_point_history()
 
-    assert len(sut.dfs) == 11
+    assert len(sut.dfs) == 15
 
 def test_parse_map_point_history_mp_loss():
     test_path = Path('tests/samples/multiplayer_loss.run')
@@ -81,7 +82,7 @@ def test_parse_map_point_history_mp_loss():
 
     sut.parse_map_point_history()
 
-    assert len(sut.dfs) == 11
+    assert len(sut.dfs) == 15
 
 def test_load_to_db_win():
     test_path = Path('tests/samples/win.run')
@@ -131,3 +132,5 @@ def test_parse_run_metadata():
 
     assert 'runs' in sut.dfs
     assert len(sut.dfs['runs'].columns) == 13
+    assert 'run_id' in sut.dfs['runs'].columns
+    assert sut.dfs['runs'].iloc[0]['start_time'] == 1778022104

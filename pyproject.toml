@@ -6,6 +6,12 @@ build-backend = "hatchling.build"
 name = "sts2"
 version = "0.0.1"
 dependencies = [
+  "pandas",
+  "tqdm",
+  "streamlit",
+  "matplotlib",
+  "plotly",
+  "Pillow",
 ]
 requires-python = ">=3.8"
 authors = [
