@@ -11,14 +11,10 @@
             "id": "c1d11dbc1b607266",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tickets/milestones/01-package-foundations.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "01-package-foundations"
+              "title": "New tab"
             }
           }
         ]
@@ -99,7 +95,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tickets/milestones/01-package-foundations.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +113,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tickets/milestones/01-package-foundations.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +155,6 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tickets/milestones/01-package-foundations.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,23 +183,41 @@
   },
   "active": "c1d11dbc1b607266",
   "lastOpenFiles": [
+    "tickets/archive/09-autodoc-and-documentation.md",
     "instance/sts2_runs.db-journal",
-    "docs/learning/03-tdd-and-ai-collaboration.md",
-    "docs/learning/02-architecture-boundaries.md",
-    "docs/learning/01-executable-milestone-checklists.md",
-    "docs/learning/README.md",
-    "docs/learning",
-    "src/sts2/services",
-    "src/sts2/gui",
-    "src/sts2/cli",
-    "src/sts2/reports",
-    "src/sts2/analysis",
-    "src/sts2/queries",
-    "src/sts2/storage/queries",
-    "src/sts2/storage",
+    "tickets/decisions/ADR-002-github-tracking.md",
+    "tickets/decisions/ADR-001-library-boundaries.md",
+    "tickets/decisions/README.md",
+    "tickets/decisions",
+    "tickets/ROADMAP.md",
     "tickets/01-foundation-package-structure.md",
+    "tickets/milestones/M10-autodoc-and-documentation.md",
+    "tickets/milestones/M09-cross-platform-binary-packaging.md",
+    "tickets/milestones/M08-end-to-end-validation-and-regression.md",
+    "tickets/milestones/M07-fastapi-gui-layer.md",
+    "tickets/milestones/M06-cli-presentation-layer.md",
+    "tickets/milestones/M05-reporting-and-analysis-queries.md",
+    "tickets/milestones/M04-sqlite-repository-and-migrations.md",
+    "tickets/milestones/M03-json-ingestion-and-normalization.md",
+    "tickets/milestones/M02-schema-contract.md",
+    "tickets/milestones/M01-package-foundations.md",
+    "tickets/archive/08-test-strategy-and-tdd.md",
+    "tickets/archive/07-gui-presentation-layer.md",
+    "tickets/archive/06-cli-presentation-layer.md",
+    "tickets/archive/05-analysis-query-layer.md",
+    "tickets/archive/04-sqlite-repository.md",
+    "tickets/archive/03-ingestion-parser.md",
+    "tickets/archive/02-normalized-db-schema.md",
+    "tickets/archive/01-foundation-package-structure.md",
+    "tickets/archive",
     "tickets/milestones/01-package-foundations.md",
-    "docs/DEVELOPMENT_SETUP.md",
-    "docs/DEVELOPMENT_STATUS.md"
+    "src/sts2/gui/__pycache__/__init__.cpython-314.pyc",
+    "src/sts2/gui/__pycache__",
+    "src/sts2/cli/__pycache__/__init__.cpython-314.pyc",
+    "src/sts2/cli/__pycache__",
+    "src/sts2/parse/__pycache__/__init__.cpython-314.pyc",
+    "src/sts2/parse/__pycache__",
+    "src/sts2/storage/__init__.py",
+    "docs/learning/03-tdd-and-ai-collaboration.md"
   ]
 }

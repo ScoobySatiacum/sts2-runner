@@ -1,6 +1,8 @@
-# Sts2 Runner Engineering Plan
+# Sts2 Runner Tracking
 
-This directory tracks the phased refactor of the project into a library-style package with clear boundaries, a normalized SQLite schema, and distinct presentation layers for CLI and GUI use.
+Active task tracking is managed through GitHub Issues and GitHub Milestones. This directory contains the durable roadmap, technical specification, milestone checklists, and architecture decision records.
+
+The older ticket files are retained under [archive/](archive/) for historical reference and are not active work items.
 
 ## Objectives
 
@@ -33,17 +35,14 @@ This directory tracks the phased refactor of the project into a library-style pa
 - Phase 6: GUI presentation layer
 - Phase 7: integration, regression, and release readiness
 
-## Ticket index
+## Canonical documents
 
-- [01-foundation-package-structure.md](01-foundation-package-structure.md)
-- [02-normalized-db-schema.md](02-normalized-db-schema.md)
-- [03-ingestion-parser.md](03-ingestion-parser.md)
-- [04-sqlite-repository.md](04-sqlite-repository.md)
-- [05-analysis-query-layer.md](05-analysis-query-layer.md)
-- [06-cli-presentation-layer.md](06-cli-presentation-layer.md)
-- [07-gui-presentation-layer.md](07-gui-presentation-layer.md)
-- [08-test-strategy-and-tdd.md](08-test-strategy-and-tdd.md)
+- [ROADMAP.md](ROADMAP.md)
+- [TECHNICAL_SPECIFICATION.md](TECHNICAL_SPECIFICATION.md)
+- [ENGINEERING_PLAN.md](ENGINEERING_PLAN.md)
+- [milestones/README.md](milestones/README.md)
+- [decisions/](decisions/)
 
 ## Dependencies and sequencing
 
-The work is intentionally staged. The first two tickets define the architecture and schema model that all later work depends on. The remaining tickets can be executed in parallel once the contracts are stable, but they should still be validated against the same underlying schema and test suite.
+The work is intentionally staged. M01 and M02 define the architecture and schema model that later work depends on. Each active GitHub Issue should reference one task ID from the corresponding milestone checklist.

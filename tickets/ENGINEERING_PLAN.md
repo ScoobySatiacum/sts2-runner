@@ -13,18 +13,13 @@ I have incorporated the decisions you confirmed:
 - pytest and TDD are mandatory
 - Ruff is the required formatter and linter: 300-character lines, tab indentation with width 4, single quotes, and no magic trailing commas
 - hatch-vcs derives package versions from Git tags; bumpver is not required
-- the `refactor` branch is the working branch until the refactor is complete
+- GitHub Issues and GitHub Milestones are the active task tracker, with `M01` as the current implementation branch
 
-The work is tracked in Obsidian-ready markdown tickets under:
-- [tickets/README.md](README.md)
-- [tickets/01-foundation-package-structure.md](01-foundation-package-structure.md)
-- [tickets/02-normalized-db-schema.md](02-normalized-db-schema.md)
-- [tickets/03-ingestion-parser.md](03-ingestion-parser.md)
-- [tickets/04-sqlite-repository.md](04-sqlite-repository.md)
-- [tickets/05-analysis-query-layer.md](05-analysis-query-layer.md)
-- [tickets/06-cli-presentation-layer.md](06-cli-presentation-layer.md)
-- [tickets/07-gui-presentation-layer.md](07-gui-presentation-layer.md)
-- [tickets/08-test-strategy-and-tdd.md](08-test-strategy-and-tdd.md)
+The work is tracked in GitHub Issues using the durable engineering plan under:
+- [tickets/ROADMAP.md](ROADMAP.md)
+- [tickets/milestones/README.md](milestones/README.md)
+- [tickets/TECHNICAL_SPECIFICATION.md](TECHNICAL_SPECIFICATION.md)
+- [tickets/decisions/](decisions/)
 
 ---
 

@@ -38,6 +38,18 @@ Keep commits focused on one milestone or bounded change. Do not commit generated
 
 Commit `uv.lock` when dependency resolution changes. It is the reproducibility record for the uv environment and binary build inputs.
 
+## GitHub task workflow
+
+GitHub Issues are the active task tracker. Before starting work:
+
+1. Select one unchecked task from the relevant milestone file.
+2. Create or select the matching GitHub Issue using the task template.
+3. Use the task ID in the issue title, branch name, and commit messages.
+4. Assign the issue to the matching GitHub Milestone.
+5. Open a pull request using the repository template and link the issue with `Closes #123`.
+
+Use one issue for one bounded outcome. Keep architecture decisions in `tickets/decisions/` and personal learning notes in the ignored `docs/learning/` directory. Do not copy GitHub issue status into `docs/DEVELOPMENT_STATUS.md`; that file records only milestone-level decisions, blockers, and validation evidence.
+
 ## Engineering boundaries
 
 Changes should preserve these ownership boundaries:

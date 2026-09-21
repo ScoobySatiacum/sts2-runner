@@ -18,6 +18,8 @@ The branch is being used for the first implementation milestone. Inspect `git st
 
 The current validation baseline is 14 passing legacy parser tests plus 2 intentionally failing Milestone 1 package-boundary tests. The failing tests identify the first implementation targets: `sts2.parse.loader`, `sts2.storage.sqlite_repository`, `sts2.queries.run_queries`, and the CLI/GUI public exports.
 
+Task-level progress is tracked in GitHub Issues. The local milestone checklist provides the task IDs and completion evidence; it is not a duplicate status board.
+
 Generated files and local environments remain excluded from source control, including `.venv`, caches, build output, distribution output, and local SQLite data. `uv.lock` is the exception: it is an intentional, tracked reproducibility file for this package and its binary builds.
 
 ## Project phase
@@ -69,8 +71,8 @@ The following worktree items were already present during this pass and were pres
 
 ## Current milestone
 
-Milestone 1 is package foundations and public contracts. Its executable checklist is in [01-package-foundations.md](../tickets/milestones/01-package-foundations.md).
+Milestone 1 is package foundations and public contracts. Its executable checklist is in [M01-package-foundations.md](../tickets/milestones/M01-package-foundations.md). Active work is tracked in GitHub Issues using task IDs such as `M01-T01`.
 
 ## Next implementation step
 
-Complete the Milestone 1 preconditions, package-structure tasks, focused tests, and documentation evidence. Keep the work test-first, preserve the current parser regression coverage, and update this status file when the milestone changes from planned to implemented.
+Complete the Milestone 1 preconditions, package-structure tasks, focused tests, and documentation evidence. Keep the work test-first, preserve the current parser regression coverage, and update this status file only for milestone-level decisions, blockers, and validation evidence. GitHub Issues hold the task-level progress.

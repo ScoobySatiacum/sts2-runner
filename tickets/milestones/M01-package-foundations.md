@@ -46,35 +46,35 @@ src/
 
 ### Preconditions
 
-- [ ] Confirm the working branch is the milestone branch for this work.
-- [ ] Confirm the current test suite passes before making changes.
-- [ ] Read the package layout and dependency-direction requirements in the technical specification.
-- [ ] Record any existing uncommitted changes before editing files.
+- [x] **M01-T01** Confirm the working branch is the milestone branch for this work.
+- [x] **M01-T02** Confirm the current test suite passes before making changes.
+- [x] **M01-T03** Read the package layout and dependency-direction requirements in the technical specification.
+- [x] **M01-T04** Record any existing uncommitted changes before editing files.
 
 ### Package structure
 
-- [ ] Create the required package directories under `src/sts2`.
-- [ ] Add `__init__.py` files to every importable package directory.
-- [ ] Add module-level docstrings to new public modules.
-- [ ] Keep CLI and GUI modules separate from the core library modules.
-- [ ] Keep database imports out of CLI and GUI modules except through service interfaces.
-- [ ] Define the first public interfaces for loading, normalization, persistence, and querying.
-- [ ] Keep the interfaces independent of pandas DataFrame implementation details.
+- [x] **M01-T05** Create the required package directories under `src/sts2`.
+- [x] **M01-T06** Add `__init__.py` files to every importable package directory.
+- [ ] **M01-T07** Add module-level docstrings to new public modules.
+- [ ] **M01-T08** Keep CLI and GUI modules separate from the core library modules.
+- [ ] **M01-T09** Keep database imports out of CLI and GUI modules except through service interfaces.
+- [ ] **M01-T10** Define the first public interfaces for loading, normalization, persistence, and querying.
+- [ ] **M01-T11** Keep the interfaces independent of pandas DataFrame implementation details.
 
 ### Tests and validation
 
-- [ ] Add the package-boundary tests before implementing the corresponding imports.
-- [ ] Run the focused package-boundary tests.
-- [ ] Run the complete existing regression suite.
-- [ ] Run Ruff on every changed Python file.
-- [ ] Inspect the import graph for presentation-to-storage shortcuts.
+- [ ] **M01-T12** Add the package-boundary tests before implementing the corresponding imports.
+- [ ] **M01-T13** Run the focused package-boundary tests.
+- [ ] **M01-T14** Run the complete existing regression suite.
+- [ ] **M01-T15** Run Ruff on every changed Python file.
+- [ ] **M01-T16** Inspect the import graph for presentation-to-storage shortcuts.
 
 ### Documentation and completion evidence
 
-- [ ] Document the dependency direction in the architecture documentation.
-- [ ] Record any package-layout decisions in the private learning notes.
-- [ ] Update `docs/DEVELOPMENT_STATUS.md` with the completed work and validation commands.
-- [ ] Mark this milestone complete only when all acceptance criteria and checklist items are satisfied.
+- [ ] **M01-T17** Document the dependency direction in the architecture documentation.
+- [ ] **M01-T18** Record any package-layout decisions in the private learning notes.
+- [ ] **M01-T19** Update `docs/DEVELOPMENT_STATUS.md` with the completed work and validation commands.
+- [ ] **M01-T20** Mark this milestone complete only when all acceptance criteria and checklist items are satisfied.
 
 ## Example pytest cases
 
