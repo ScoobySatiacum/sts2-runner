@@ -11,10 +11,14 @@
             "id": "c1d11dbc1b607266",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "tickets/milestones/M01-package-foundations.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "M01-package-foundations"
             }
           }
         ]
@@ -95,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tickets/milestones/M01-package-foundations.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tickets/milestones/M01-package-foundations.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -155,6 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "tickets/milestones/M01-package-foundations.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -183,12 +190,21 @@
   },
   "active": "c1d11dbc1b607266",
   "lastOpenFiles": [
-    "tickets/archive/09-autodoc-and-documentation.md",
+    "src/sts2/parse/__pycache__/loader.cpython-314.pyc",
     "instance/sts2_runs.db-journal",
+    "src/sts2/compat/legacy_adapter.py",
+    "src/sts2/compat/__init__.py",
+    "src/sts2/compat",
+    "src/sts2/services/analysis_service.py",
+    "src/sts2/services/report_service.py",
+    "src/sts2/services/ingest_service.py",
+    "src/sts2/gui/static",
+    "src/sts2/gui/templates",
+    "src/sts2/gui/routes/analysis.py",
+    "tickets/archive/09-autodoc-and-documentation.md",
     "tickets/decisions/ADR-002-github-tracking.md",
     "tickets/decisions/ADR-001-library-boundaries.md",
     "tickets/decisions/README.md",
-    "tickets/decisions",
     "tickets/ROADMAP.md",
     "tickets/01-foundation-package-structure.md",
     "tickets/milestones/M10-autodoc-and-documentation.md",
@@ -209,15 +225,6 @@
     "tickets/archive/03-ingestion-parser.md",
     "tickets/archive/02-normalized-db-schema.md",
     "tickets/archive/01-foundation-package-structure.md",
-    "tickets/archive",
-    "tickets/milestones/01-package-foundations.md",
-    "src/sts2/gui/__pycache__/__init__.cpython-314.pyc",
-    "src/sts2/gui/__pycache__",
-    "src/sts2/cli/__pycache__/__init__.cpython-314.pyc",
-    "src/sts2/cli/__pycache__",
-    "src/sts2/parse/__pycache__/__init__.cpython-314.pyc",
-    "src/sts2/parse/__pycache__",
-    "src/sts2/storage/__init__.py",
-    "docs/learning/03-tdd-and-ai-collaboration.md"
+    "tickets/milestones/01-package-foundations.md"
   ]
 }
