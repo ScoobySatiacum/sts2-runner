@@ -2,18 +2,33 @@
 
 A data parser for Slay the Spire 2 run saves -> sqlite database, plus a small report/graphing script. Single-package repo (`sts2`), no app/server.
 
+## Working guidance
+
+- Treat the repository as a library-first refactor. Keep parsing, normalization, storage, queries, analysis, reports, CLI, and GUI responsibilities in their documented package boundaries.
+- Read the applicable milestone checklist in `tickets/milestones/` and the related decision or technical specification before changing architecture or data contracts.
+- Use `docs/DEVELOPMENT_SETUP.md` for repository hygiene, uv, Ruff, docstrings, and documentation conventions. Use `docs/DEVELOPMENT_STATUS.md` for the current milestone and validation baseline.
+- For schema work, inspect `tickets/milestones/M02-schema-contract.md`, `sts2_run_db_schema.sql`, the parser output, and representative files under `tests/samples/`. Preserve source ordering, optional values, unknown fields, and parent ownership rather than choosing a lossy convenience mapping.
+- Keep milestone documentation examples separate from implementation changes. Update a milestone checklist only when its acceptance criteria or completion evidence changes.
+- Work test-first where practical: add or update a focused test, run it, then run the complete suite and applicable Ruff checks.
+- Preserve unrelated worktree changes. Do not commit or push unless the user explicitly asks for that exact operation after review.
+
 ## Commands
 
-- Run tests: `.venv/bin/python -m pytest tests` (repo has a committed `.venv`, Python 3.14).
+- Run tests: `uv run pytest` (the repository uses uv; the committed `.venv` is also available with Python 3.14).
+- Legacy-compatible test command: `.venv/bin/python -m pytest tests`.
 - Single test: `.venv/bin/python -m pytest tests/sts2/test_sts_run_parser.py::test_parse_players_win`.
 - Parse runs into the DB: `.venv/bin/python -m sts2.sts_run_parser <dir-of-.run-files> --db instance/sts2_runs.db` (argparse CLI; skips run_ids already in the DB).
-- No lint, typecheck, or formatter config exists. `pyproject.toml` has no dev tooling.
+- Ruff check: `uv run ruff check src tests`.
+- Ruff format check: `uv run ruff format --check src tests`.
+- There is no separate typecheck configuration.
 
 ## Package layout
 
 - src-layout: the importable package is `src/sts2`, installed *editable* into `.venv` (hatchling). Tests do `from sts2.sts_run_parser import StsRunParser`. Don't move files into a top-level `sts2/` dir.
 - `src/sts2/sts_run_parser.py` is the core: normalizes a `.run` JSON file into a dict of pandas DataFrames (`self.dfs`) and loads them into sqlite via `load_to_db()`. `run_id` = the file stem, used as the identity column across all tables (including `runs`).
 - `src/sts2/sts_run_reporter.py` is a standalone streamlit/matplotlib/plotly script, half-formed and not wired into the parser.
+- Planned package boundaries are described in `tickets/TECHNICAL_SPECIFICATION.md` and `tickets/decisions/ADR-001-library-boundaries.md`; the currently implemented legacy parser remains in place while milestone work proceeds.
+- Milestone task-level progress belongs in GitHub Issues; local milestone files contain the checklist and completion evidence. Do not infer completion from a checklist item without running its stated validation.
 
 ## Gotchas
 
